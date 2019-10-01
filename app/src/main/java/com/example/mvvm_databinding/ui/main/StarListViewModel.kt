@@ -14,7 +14,7 @@ class StarListViewModel @Inject constructor(private val repoRepository: RepoRepo
     val repoLifeData = MutableLiveData<ArrayList<Repo>>()
 
     public fun getMyStarRepos(userName: String) {
-        val repoDisposable = repoRepository.getRepos(userName)
+        val repoDisposable = repoRepository.fetchRepos(userName)
                 .subscribeOn(baseScheduler.io())
                 .observeOn(baseScheduler.ui())
                 .subscribe {

@@ -1,9 +1,9 @@
 package com.example.mvvm_databinding.di.components
 
+import android.app.Application
 import com.example.mvvm_databinding.App
-import com.example.mvvm_databinding.di.modules.ActivityBuilderModule
-import com.example.mvvm_databinding.di.modules.AppModule
-import com.example.mvvm_databinding.di.modules.NetworkModule
+import com.example.mvvm_databinding.di.modules.*
+import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -14,9 +14,18 @@ import javax.inject.Singleton
     AndroidSupportInjectionModule::class,
     AppModule::class,
     NetworkModule::class,
-    ActivityBuilderModule::class])
+    ActivityBuilderModule::class,
+    AppDbModule::class,
+    ApplicationContextModule::class])
 
-interface AppComponent : AndroidInjector<App> {
+interface AppComponent {
+    fun inject(application: App)
+
     @Component.Builder
-    abstract class Builder : AndroidInjector.Builder<App>()
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application): Builder
+
+        fun build(): AppComponent
+    }
 }

@@ -66,16 +66,16 @@ dependencies {
     implementation 'io.reactivex:rxkotlin:2.0.0-RC1'
 
     // Dagger 2
-    implementation 'com.google.dagger:dagger:2.16'
-    kapt 'com.google.dagger:dagger-compiler:2.16'
-    implementation 'com.google.dagger:dagger-android-support:2.16'
-    kapt 'com.google.dagger:dagger-android-processor:2.16'
+    implementation 'com.google.dagger:dagger:2.24'
+    kapt 'com.google.dagger:dagger-compiler:2.24'
+    implementation 'com.google.dagger:dagger-android-support:2.24'
+    kapt 'com.google.dagger:dagger-android-processor:2.24'
 
-    kaptAndroidTest 'com.google.dagger:dagger-compiler:2.16'
-    kaptAndroidTest 'com.google.dagger:dagger-android-processor:2.16'
+    kaptAndroidTest 'com.google.dagger:dagger-compiler:2.24'
+    kaptAndroidTest 'com.google.dagger:dagger-android-processor:2.24'
 
     //Kotlin
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.41'
 
     // Android Databinding
     kapt 'com.android.databinding:compiler:3.1.4'
