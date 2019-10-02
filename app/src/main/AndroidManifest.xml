@@ -17,6 +17,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.main.StarListActivity">
+
+        </activity>
+
+        <activity android:name=".ui.cities.CityListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

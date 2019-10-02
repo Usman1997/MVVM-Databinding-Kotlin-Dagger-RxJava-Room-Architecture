@@ -1,10 +1,10 @@
 package com.example.mvvm_databinding.di.modules
 
-import android.app.Application
-import android.content.Context
-import com.example.mvvm_databinding.Repository.RepoLocalSource
-import com.example.mvvm_databinding.Repository.RepoRemoteSource
-import com.example.mvvm_databinding.Repository.RepoRepository
+import com.example.mvvm_databinding.Repository.Repo.RepoLocalSource
+import com.example.mvvm_databinding.Repository.Repo.RepoRemoteSource
+import com.example.mvvm_databinding.Repository.Repo.RepoRepository
+import com.example.mvvm_databinding.Repository.city.CityRemoteSource
+import com.example.mvvm_databinding.Repository.city.CityRepository
 import com.example.mvvm_databinding.db.RepoDao
 import com.example.mvvm_databinding.network.Api
 import com.example.mvvm_databinding.utils.Schedulers.BaseScheduler
@@ -13,8 +13,6 @@ import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import javax.inject.Singleton
-import com.example.mvvm_databinding.App
-import dagger.Binds
 
 @Module(includes = [(ViewModelModule::class)])
 class AppModule {
@@ -46,6 +44,18 @@ class AppModule {
     @Singleton
     fun provideRepoRemoteSource(api: Api): RepoRemoteSource {
         return RepoRemoteSource(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCityRemoteSource(api:Api): CityRemoteSource {
+        return CityRemoteSource(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCityRepository(cityRemoteSource: CityRemoteSource):CityRepository{
+        return CityRepository(cityRemoteSource)
     }
 
 

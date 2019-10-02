@@ -1,5 +1,6 @@
-package com.example.mvvm_databinding.Repository
+package com.example.mvvm_databinding.Repository.Repo
 
+import com.example.mvvm_databinding.Repository.Repo.RepoDataSource
 import com.example.mvvm_databinding.db.RepoDao
 import com.example.mvvm_databinding.model.Repo
 import io.reactivex.Observable

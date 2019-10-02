@@ -1,5 +1,6 @@
 package com.example.mvvm_databinding.di.modules
 
+import com.example.mvvm_databinding.ui.cities.CityListActivity
 import com.example.mvvm_databinding.ui.main.StarListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -8,4 +9,7 @@ import dagger.android.ContributesAndroidInjector
 interface ActivityBuilderModule {
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
     fun contributeMainActivity(): StarListActivity
+    @ContributesAndroidInjector
+    fun contributeCityActivity(): CityListActivity
+
 }
