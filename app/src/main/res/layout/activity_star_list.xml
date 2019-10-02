@@ -19,5 +19,9 @@
             android:scrollbars="vertical"
             app:load_repos="@{repos}"/>
 
+
+
+
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

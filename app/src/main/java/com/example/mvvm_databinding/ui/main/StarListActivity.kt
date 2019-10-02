@@ -1,6 +1,7 @@
 package com.example.mvvm_databinding.ui.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -22,6 +23,7 @@ class StarListActivity : DaggerAppCompatActivity() {
          starListViewModel = ViewModelProviders.of(this,viewModelFactory).get(StarListViewModel::class.java)
         getStarredRepos(starListViewModel)
         observeMyStars(starListViewModel)
+        observeResponse(starListViewModel)
     }
 
     private fun setUpViews() {
@@ -29,6 +31,19 @@ class StarListActivity : DaggerAppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
+
+    private fun observeResponse(viewModel:StarListViewModel) {
+        viewModel.loadingStatus.observe(
+                this,
+                androidx.lifecycle.Observer { isLoading->if (isLoading){
+                    Toast.makeText(this,"Loading",Toast.LENGTH_LONG).
+                            show()
+                }else{
+                    Toast.makeText(this,"Not Loading",Toast.LENGTH_LONG).
+                            show()
+                }
+                })
+    }
 
     private fun getStarredRepos(viewModel: StarListViewModel) {
         viewModel.getMyStarRepos("mrabelwahed")
