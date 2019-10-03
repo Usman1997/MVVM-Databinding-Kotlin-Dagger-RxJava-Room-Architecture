@@ -42,7 +42,7 @@ class CityListActivity : DaggerAppCompatActivity() {
     }
 
     private fun getStarredRepos(viewModel: CityListViewModel) {
-        viewModel.getCities("0")
+        viewModel.getCities("49")
     }
 
 

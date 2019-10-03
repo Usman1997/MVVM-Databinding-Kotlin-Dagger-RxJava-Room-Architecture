@@ -12,10 +12,6 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
-
-
-
-
 class CityListViewModel @Inject constructor(private val cityRepository: CityRepository, private val baseScheduler: BaseScheduler) : BaseViewModel<List<CitiesData>>() {
     val compositeDisposable = CompositeDisposable();
     val repoLifeData = MutableLiveData<ArrayList<CitiesData>>()
