@@ -7,4 +7,5 @@ import com.example.mvvm_databinding.model.Response
 abstract class BaseViewModel<T>:ViewModel() {
     val response: MutableLiveData<Response<T>> = MutableLiveData()
     val loadingStatus: MutableLiveData<Boolean> = MutableLiveData()
+    val errorStatus : MutableLiveData<Throwable> = MutableLiveData()
 }
